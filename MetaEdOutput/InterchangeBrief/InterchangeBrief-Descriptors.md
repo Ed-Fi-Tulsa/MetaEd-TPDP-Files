@@ -94,6 +94,8 @@ The following table describes the primary entities of which the Descriptors Inte
 | LevelOfDegreeAwardedDescriptor | The descriptor holds the level of degree awarded by the teacher prep program to the person (e.g., Certificate Only, Bachelor's, Master's, etc.). |
 | LevelTypeDescriptor | The descriptor holds the level (e.g., 1, 2, 3, etc.) of the rubric at which the data is captured. |
 | PerformanceMeasureTypeDescriptor | The descriptor holds the type (e.g., walkthrough, summative) of observation conducted. |
+| PopulationCategoryDescriptor | Section of the school that is associated with a VAM |
+| PopulationSubCategoryDescriptor | Section of the school that is associated with a VAM |
 | PreviousCareerDescriptor | The descriptor holds the previous career of an individual. |
 | ProfessionalDevelopmentOfferedByDescriptor | The descriptor holds the organization that a professional development is offered by. |
 | ProgramGatewayDescriptor | The descriptor holds the program gateway that is associated with continuation in a program. |

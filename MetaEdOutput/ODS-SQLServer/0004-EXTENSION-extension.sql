@@ -52,6 +52,58 @@ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The value for 
 GO
 
 
+/****** Table: [extension].[AccountExtension] ******/
+
+CREATE TABLE [extension].[AccountExtension](
+    [AccountNumber] [NVARCHAR](50) NOT NULL,
+    [EducationOrganizationId] [INT] NOT NULL,
+    [FiscalYear] [INT] NOT NULL,
+    [ActualPurchaseOrderCarryForwardCurrentYear] [MONEY] NULL,
+    [ActualCurrentYear] [MONEY] NULL,
+    [CarryForwardCurrentYear] [MONEY] NULL,
+    [CarryForwardTransferCurrentYear] [MONEY] NULL,
+    [EncumbPurchaseOrderCarryForwardCurrentYear] [MONEY] NULL,
+    [EncumbranceCurrentYear] [MONEY] NULL,
+    [LongDescription] [NVARCHAR](30) NULL,
+    [RequisitionCurrentYear] [MONEY] NULL,
+    [RevisedCurrentYear] [MONEY] NULL,
+    CONSTRAINT [AccountExtension_PK] PRIMARY KEY CLUSTERED (
+        [AccountNumber] ASC,
+        [EducationOrganizationId] ASC,
+        [FiscalYear] ASC
+    ) WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+
+
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE', @level1name=N'AccountExtension'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The alphanumeric string that identifies the account.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'AccountExtension', @level2type=N'COLUMN', @level2name=N'AccountNumber'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The identifier assigned to an education agency by the State Education Agency (SEA).  Also known as the State LEA ID.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'AccountExtension', @level2type=N'COLUMN', @level2name=N'EducationOrganizationId'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The financial accounting year.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'AccountExtension', @level2type=N'COLUMN', @level2name=N'FiscalYear'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Actual purchase order carry-forward current year.  Actual expenses paid on carry forward PO in current year', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'AccountExtension', @level2type=N'COLUMN', @level2name=N'ActualPurchaseOrderCarryForwardCurrentYear'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'CurrentYear and Carry Forward expenses in Current Year', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'AccountExtension', @level2type=N'COLUMN', @level2name=N'ActualCurrentYear'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Amount of Carry Forward PO''s carried into current year', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'AccountExtension', @level2type=N'COLUMN', @level2name=N'CarryForwardCurrentYear'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Carry forward transfers done in the current year', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'AccountExtension', @level2type=N'COLUMN', @level2name=N'CarryForwardTransferCurrentYear'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Amount of carry forward PO''s currently encumbered in current year', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'AccountExtension', @level2type=N'COLUMN', @level2name=N'EncumbPurchaseOrderCarryForwardCurrentYear'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Current year encumbrance.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'AccountExtension', @level2type=N'COLUMN', @level2name=N'EncumbranceCurrentYear'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Long description of the account', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'AccountExtension', @level2type=N'COLUMN', @level2name=N'LongDescription'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Current year RQ''s', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'AccountExtension', @level2type=N'COLUMN', @level2name=N'RequisitionCurrentYear'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Current year revised budget', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'AccountExtension', @level2type=N'COLUMN', @level2name=N'RevisedCurrentYear'
+GO
+
+
 /****** Table: [extension].[AidType] ******/
 
 CREATE TABLE [extension].[AidType](
@@ -5768,6 +5820,37 @@ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Identifies the
 GO
 
 
+/****** Table: [extension].[LeaveEventExtension] ******/
+
+CREATE TABLE [extension].[LeaveEventExtension](
+    [EventDate] [DATE] NOT NULL,
+    [LeaveEventCategoryTypeId] [INT] NOT NULL,
+    [StaffUSI] [INT] NOT NULL,
+    [PayCodeID] [NVARCHAR](4) NULL,
+    CONSTRAINT [LeaveEventExtension_PK] PRIMARY KEY CLUSTERED (
+        [EventDate] ASC,
+        [LeaveEventCategoryTypeId] ASC,
+        [StaffUSI] ASC
+    ) WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+
+
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE', @level1name=N'LeaveEventExtension'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Date for this leave event.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'LeaveEventExtension', @level2type=N'COLUMN', @level2name=N'EventDate'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The code describing the type of leave taken, for example:
+        Sick
+        Personal
+        Vacation.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'LeaveEventExtension', @level2type=N'COLUMN', @level2name=N'LeaveEventCategoryTypeId'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'A unique alphanumeric code assigned to a staff.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'LeaveEventExtension', @level2type=N'COLUMN', @level2name=N'StaffUSI'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The Pay Code ID column identifies the pay code to which the edit applies', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'LeaveEventExtension', @level2type=N'COLUMN', @level2name=N'PayCodeID'
+GO
+
+
 /****** Table: [extension].[LevelOfDegreeAwardedDescriptor] ******/
 
 CREATE TABLE [extension].[LevelOfDegreeAwardedDescriptor](
@@ -6229,6 +6312,114 @@ GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'A unique identifier used as Primary Key, not derived from business logic, when acting as Foreign Key, references the parent table.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'PerformanceMeasureTypeDescriptor', @level2type=N'COLUMN', @level2name=N'PerformanceMeasureTypeDescriptorId'
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'A unique identifier used as Primary Key, not derived from business logic, when acting as Foreign Key, references the parent table.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'PerformanceMeasureTypeDescriptor', @level2type=N'COLUMN', @level2name=N'PerformanceMeasureTypeId'
+GO
+
+
+/****** Table: [extension].[PopulationCategoryDescriptor] ******/
+
+CREATE TABLE [extension].[PopulationCategoryDescriptor](
+    [PopulationCategoryDescriptorId] [INT] NOT NULL,
+    [PopulationCategoryTypeId] [INT] NOT NULL,
+    CONSTRAINT [PopulationCategoryDescriptor_PK] PRIMARY KEY CLUSTERED (
+        [PopulationCategoryDescriptorId] ASC
+    ) WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+
+
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Section of the school that is associated with a VAM', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE', @level1name=N'PopulationCategoryDescriptor'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'A unique identifier used as Primary Key, not derived from business logic, when acting as Foreign Key, references the parent table.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'PopulationCategoryDescriptor', @level2type=N'COLUMN', @level2name=N'PopulationCategoryDescriptorId'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'A unique identifier used as Primary Key, not derived from business logic, when acting as Foreign Key, references the parent table.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'PopulationCategoryDescriptor', @level2type=N'COLUMN', @level2name=N'PopulationCategoryTypeId'
+GO
+
+
+/****** Table: [extension].[PopulationCategoryType] ******/
+
+CREATE TABLE [extension].[PopulationCategoryType](
+    [PopulationCategoryTypeId] [INT] IDENTITY(1,1) NOT NULL,
+    [CodeValue] [NVARCHAR](50) NOT NULL,
+    [Description] [NVARCHAR](1024) NOT NULL,
+    [ShortDescription] [NVARCHAR](450) NOT NULL,
+    [CreateDate] [DATETIME] NOT NULL, 
+    [LastModifiedDate] [DATETIME] NOT NULL,
+    [Id] [UNIQUEIDENTIFIER] NOT NULL, 
+    CONSTRAINT [PopulationCategoryType_PK] PRIMARY KEY CLUSTERED (
+        [PopulationCategoryTypeId] ASC
+    ) WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+ALTER TABLE [extension].[PopulationCategoryType] ADD CONSTRAINT [PopulationCategoryType_DF_CreateDate] DEFAULT (getdate()) FOR [CreateDate]
+GO
+ALTER TABLE [extension].[PopulationCategoryType] ADD CONSTRAINT [PopulationCategoryType_DF_Id] DEFAULT (newid()) FOR [Id]
+GO
+ALTER TABLE [extension].[PopulationCategoryType] ADD CONSTRAINT [PopulationCategoryType_DF_LastModifiedDate]  DEFAULT (getdate()) FOR [LastModifiedDate]
+GO
+
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Section of the school that is associated with a VAM', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE', @level1name=N'PopulationCategoryType'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Key for PopulationCategory', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'PopulationCategoryType', @level2type=N'COLUMN', @level2name=N'PopulationCategoryTypeId'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'This column is deprecated.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'PopulationCategoryType', @level2type=N'COLUMN', @level2name=N'CodeValue'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The description for the PopulationCategory type.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'PopulationCategoryType', @level2type=N'COLUMN', @level2name=N'Description'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The value for the PopulationCategory type.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'PopulationCategoryType', @level2type=N'COLUMN', @level2name=N'ShortDescription'
+GO
+
+
+/****** Table: [extension].[PopulationSubCategoryDescriptor] ******/
+
+CREATE TABLE [extension].[PopulationSubCategoryDescriptor](
+    [PopulationSubCategoryDescriptorId] [INT] NOT NULL,
+    [PopulationSubCategoryTypeId] [INT] NOT NULL,
+    CONSTRAINT [PopulationSubCategoryDescriptor_PK] PRIMARY KEY CLUSTERED (
+        [PopulationSubCategoryDescriptorId] ASC
+    ) WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+
+
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Section of the school that is associated with a VAM', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE', @level1name=N'PopulationSubCategoryDescriptor'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'A unique identifier used as Primary Key, not derived from business logic, when acting as Foreign Key, references the parent table.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'PopulationSubCategoryDescriptor', @level2type=N'COLUMN', @level2name=N'PopulationSubCategoryDescriptorId'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'A unique identifier used as Primary Key, not derived from business logic, when acting as Foreign Key, references the parent table.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'PopulationSubCategoryDescriptor', @level2type=N'COLUMN', @level2name=N'PopulationSubCategoryTypeId'
+GO
+
+
+/****** Table: [extension].[PopulationSubCategoryType] ******/
+
+CREATE TABLE [extension].[PopulationSubCategoryType](
+    [PopulationSubCategoryTypeId] [INT] IDENTITY(1,1) NOT NULL,
+    [CodeValue] [NVARCHAR](50) NOT NULL,
+    [Description] [NVARCHAR](1024) NOT NULL,
+    [ShortDescription] [NVARCHAR](450) NOT NULL,
+    [CreateDate] [DATETIME] NOT NULL, 
+    [LastModifiedDate] [DATETIME] NOT NULL,
+    [Id] [UNIQUEIDENTIFIER] NOT NULL, 
+    CONSTRAINT [PopulationSubCategoryType_PK] PRIMARY KEY CLUSTERED (
+        [PopulationSubCategoryTypeId] ASC
+    ) WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+ALTER TABLE [extension].[PopulationSubCategoryType] ADD CONSTRAINT [PopulationSubCategoryType_DF_CreateDate] DEFAULT (getdate()) FOR [CreateDate]
+GO
+ALTER TABLE [extension].[PopulationSubCategoryType] ADD CONSTRAINT [PopulationSubCategoryType_DF_Id] DEFAULT (newid()) FOR [Id]
+GO
+ALTER TABLE [extension].[PopulationSubCategoryType] ADD CONSTRAINT [PopulationSubCategoryType_DF_LastModifiedDate]  DEFAULT (getdate()) FOR [LastModifiedDate]
+GO
+
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Section of the school that is associated with a VAM', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE', @level1name=N'PopulationSubCategoryType'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Key for PopulationSubCategory', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'PopulationSubCategoryType', @level2type=N'COLUMN', @level2name=N'PopulationSubCategoryTypeId'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'This column is deprecated.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'PopulationSubCategoryType', @level2type=N'COLUMN', @level2name=N'CodeValue'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The description for the PopulationSubCategory type.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'PopulationSubCategoryType', @level2type=N'COLUMN', @level2name=N'Description'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The value for the PopulationSubCategory type.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'PopulationSubCategoryType', @level2type=N'COLUMN', @level2name=N'ShortDescription'
 GO
 
 
@@ -7102,6 +7293,7 @@ CREATE TABLE [extension].[RubricLevelResponse](
     [TextResponse] [NVARCHAR](255) NULL,
     [AreaOfRefinement] [BIT] NULL,
     [AreaOfReinforcement] [BIT] NULL,
+    [HalfIndicatorsScored] [BIT] NULL,
     [CreateDate] [DATETIME] NOT NULL, 
     [LastModifiedDate] [DATETIME] NOT NULL,
     [Id] [UNIQUEIDENTIFIER] NOT NULL, 
@@ -7140,6 +7332,8 @@ GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Indicator that the rubric component is an area of refinement.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'RubricLevelResponse', @level2type=N'COLUMN', @level2name=N'AreaOfRefinement'
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Indicator that the rubric component is an area of reinforcement.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'RubricLevelResponse', @level2type=N'COLUMN', @level2name=N'AreaOfReinforcement'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Indicates if at least 50% of indicators for each domain scored', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'RubricLevelResponse', @level2type=N'COLUMN', @level2name=N'HalfIndicatorsScored'
 GO
 
 
@@ -7453,6 +7647,63 @@ GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The description for the SchoolStatus type.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'SchoolStatusType', @level2type=N'COLUMN', @level2name=N'Description'
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The value for the SchoolStatus type.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'SchoolStatusType', @level2type=N'COLUMN', @level2name=N'ShortDescription'
+GO
+
+
+/****** Table: [extension].[SchoolStudentGrowthMeasure] ******/
+
+CREATE TABLE [extension].[SchoolStudentGrowthMeasure](
+    [FactAsOfDate] [DATE] NOT NULL,
+    [SchoolId] [INT] NOT NULL,
+    [SchoolYear] [SMALLINT] NOT NULL,
+    [StudentGrowthActualScore] [INT] NOT NULL,
+    [StudentGrowthMet] [BIT] NOT NULL,
+    [StudentGrowthNCount] [INT] NULL,
+    [AcademicSubjectDescriptorId] [INT] NULL,
+    [PopulationCategoryDescriptorId] [INT] NOT NULL,
+    [PopulationSubCategoryDescriptorId] [INT] NOT NULL,
+    [SupLowN] [BIT] NOT NULL,
+    [SupressionFlag] [BIT] NOT NULL,
+    [CreateDate] [DATETIME] NOT NULL, 
+    [LastModifiedDate] [DATETIME] NOT NULL,
+    [Id] [UNIQUEIDENTIFIER] NOT NULL, 
+    CONSTRAINT [SchoolStudentGrowthMeasure_PK] PRIMARY KEY CLUSTERED (
+        [FactAsOfDate] ASC,
+        [SchoolId] ASC,
+        [SchoolYear] ASC
+    ) WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+ALTER TABLE [extension].[SchoolStudentGrowthMeasure] ADD CONSTRAINT [SchoolStudentGrowthMeasure_DF_CreateDate] DEFAULT (getdate()) FOR [CreateDate]
+GO
+ALTER TABLE [extension].[SchoolStudentGrowthMeasure] ADD CONSTRAINT [SchoolStudentGrowthMeasure_DF_Id] DEFAULT (newid()) FOR [Id]
+GO
+ALTER TABLE [extension].[SchoolStudentGrowthMeasure] ADD CONSTRAINT [SchoolStudentGrowthMeasure_DF_LastModifiedDate]  DEFAULT (getdate()) FOR [LastModifiedDate]
+GO
+
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Complex type that provides data about a group of students and their student growth as it pertains to a school', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE', @level1name=N'SchoolStudentGrowthMeasure'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The date for which the data element is relevant', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'SchoolStudentGrowthMeasure', @level2type=N'COLUMN', @level2name=N'FactAsOfDate'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The identifier assigned to a school by the State Education Agency (SEA).', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'SchoolStudentGrowthMeasure', @level2type=N'COLUMN', @level2name=N'SchoolId'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The school year for which the data is associated', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'SchoolStudentGrowthMeasure', @level2type=N'COLUMN', @level2name=N'SchoolYear'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The actual score a group of students receives on their student growth assessment', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'SchoolStudentGrowthMeasure', @level2type=N'COLUMN', @level2name=N'StudentGrowthActualScore'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Identifies if the student has met the student growth target score', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'SchoolStudentGrowthMeasure', @level2type=N'COLUMN', @level2name=N'StudentGrowthMet'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The number of students included in the average score result.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'SchoolStudentGrowthMeasure', @level2type=N'COLUMN', @level2name=N'StudentGrowthNCount'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The academic subject associated with the VAM', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'SchoolStudentGrowthMeasure', @level2type=N'COLUMN', @level2name=N'AcademicSubjectDescriptorId'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Section of the school that is associated with a VAM', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'SchoolStudentGrowthMeasure', @level2type=N'COLUMN', @level2name=N'PopulationCategoryDescriptorId'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Section of the school that is associated with a VAM', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'SchoolStudentGrowthMeasure', @level2type=N'COLUMN', @level2name=N'PopulationSubCategoryDescriptorId'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Denotes reason for suppression', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'SchoolStudentGrowthMeasure', @level2type=N'COLUMN', @level2name=N'SupLowN'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Denotes if suppressed or not', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'SchoolStudentGrowthMeasure', @level2type=N'COLUMN', @level2name=N'SupressionFlag'
 GO
 
 
@@ -11002,6 +11253,7 @@ CREATE TABLE [extension].[SurveySectionResponseRating](
     [SurveyResponseIdentifier] [NVARCHAR](64) NOT NULL,
     [SurveySectionTitle] [NVARCHAR](50) NOT NULL,
     [SectionRating] [DECIMAL](9, 3) NOT NULL,
+    [StudentSurveyNCount] [INT] NULL,
     [CreateDate] [DATETIME] NOT NULL, 
     [LastModifiedDate] [DATETIME] NOT NULL,
     [Id] [UNIQUEIDENTIFIER] NOT NULL, 
@@ -11028,6 +11280,8 @@ GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'The title or label for the survey section.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'SurveySectionResponseRating', @level2type=N'COLUMN', @level2name=N'SurveySectionTitle'
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Numeric rating computed from the survey responses for the section.', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'SurveySectionResponseRating', @level2type=N'COLUMN', @level2name=N'SectionRating'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Indicated how many students took the survey', @level0type=N'SCHEMA', @level0name=N'extension', @level1type=N'TABLE',@level1name=N'SurveySectionResponseRating', @level2type=N'COLUMN', @level2name=N'StudentSurveyNCount'
 GO
 
 
@@ -13558,6 +13812,42 @@ CREATE NONCLUSTERED INDEX [FK_PerformanceMeasureTypeDescriptor_PerformanceMeasur
 ON [extension].[PerformanceMeasureTypeDescriptor]([PerformanceMeasureTypeId] ASC)
 GO
 
+ALTER TABLE [extension].[PopulationCategoryDescriptor] WITH CHECK ADD CONSTRAINT [FK_PopulationCategoryDescriptor_Descriptor] FOREIGN KEY ([PopulationCategoryDescriptorId])
+REFERENCES [edfi].[Descriptor] ([DescriptorId])
+ON DELETE CASCADE
+
+GO
+
+
+
+ALTER TABLE [extension].[PopulationCategoryDescriptor] WITH CHECK ADD CONSTRAINT [FK_PopulationCategoryDescriptor_PopulationCategoryType] FOREIGN KEY ([PopulationCategoryTypeId])
+REFERENCES [extension].[PopulationCategoryType] ([PopulationCategoryTypeId])
+
+
+GO
+
+CREATE NONCLUSTERED INDEX [FK_PopulationCategoryDescriptor_PopulationCategoryType]
+ON [extension].[PopulationCategoryDescriptor]([PopulationCategoryTypeId] ASC)
+GO
+
+ALTER TABLE [extension].[PopulationSubCategoryDescriptor] WITH CHECK ADD CONSTRAINT [FK_PopulationSubCategoryDescriptor_Descriptor] FOREIGN KEY ([PopulationSubCategoryDescriptorId])
+REFERENCES [edfi].[Descriptor] ([DescriptorId])
+ON DELETE CASCADE
+
+GO
+
+
+
+ALTER TABLE [extension].[PopulationSubCategoryDescriptor] WITH CHECK ADD CONSTRAINT [FK_PopulationSubCategoryDescriptor_PopulationSubCategoryType] FOREIGN KEY ([PopulationSubCategoryTypeId])
+REFERENCES [extension].[PopulationSubCategoryType] ([PopulationSubCategoryTypeId])
+
+
+GO
+
+CREATE NONCLUSTERED INDEX [FK_PopulationSubCategoryDescriptor_PopulationSubCategoryType]
+ON [extension].[PopulationSubCategoryDescriptor]([PopulationSubCategoryTypeId] ASC)
+GO
+
 ALTER TABLE [extension].[PreviousCareerDescriptor] WITH CHECK ADD CONSTRAINT [FK_PreviousCareerDescriptor_Descriptor] FOREIGN KEY ([PreviousCareerDescriptorId])
 REFERENCES [edfi].[Descriptor] ([DescriptorId])
 ON DELETE CASCADE
@@ -14192,6 +14482,14 @@ CREATE NONCLUSTERED INDEX [FK_TeacherCandidateTeacherPreparationProviderProgramA
 ON [extension].[TeacherCandidateTeacherPreparationProviderProgramAssociation]([EducationOrganizationId] ASC, [ProgramName] ASC, [ProgramTypeId] ASC)
 GO
 
+ALTER TABLE [extension].[AccountExtension] WITH CHECK ADD CONSTRAINT [FK_AccountExtension_Account] FOREIGN KEY ([EducationOrganizationId], [AccountNumber], [FiscalYear])
+REFERENCES [edfi].[Account] ([EducationOrganizationId], [AccountNumber], [FiscalYear])
+ON DELETE CASCADE
+
+GO
+
+
+
 ALTER TABLE [extension].[AssessmentExtension] WITH CHECK ADD CONSTRAINT [FK_AssessmentExtension_Assessment] FOREIGN KEY ([AssessmentTitle], [AssessedGradeLevelDescriptorId], [AcademicSubjectDescriptorId], [Version])
 REFERENCES [edfi].[Assessment] ([AssessmentTitle], [AssessedGradeLevelDescriptorId], [AcademicSubjectDescriptorId], [Version])
 ON DELETE CASCADE
@@ -14347,6 +14645,14 @@ GO
 CREATE NONCLUSTERED INDEX [FK_GradebookEntryExtension_ProgramGatewayDescriptor]
 ON [extension].[GradebookEntryExtension]([ProgramGatewayDescriptorId] ASC)
 GO
+
+ALTER TABLE [extension].[LeaveEventExtension] WITH CHECK ADD CONSTRAINT [FK_LeaveEventExtension_LeaveEvent] FOREIGN KEY ([StaffUSI], [EventDate], [LeaveEventCategoryTypeId])
+REFERENCES [edfi].[LeaveEvent] ([StaffUSI], [EventDate], [LeaveEventCategoryTypeId])
+ON DELETE CASCADE
+
+GO
+
+
 
 ALTER TABLE [extension].[SchoolExtension] WITH CHECK ADD CONSTRAINT [FK_SchoolExtension_School] FOREIGN KEY ([SchoolId])
 REFERENCES [edfi].[School] ([SchoolId])
@@ -17848,6 +18154,56 @@ GO
 
 
 
+ALTER TABLE [extension].[SchoolStudentGrowthMeasure] WITH CHECK ADD CONSTRAINT [FK_SchoolStudentGrowthMeasure_AcademicSubjectDescriptor] FOREIGN KEY ([AcademicSubjectDescriptorId])
+REFERENCES [edfi].[AcademicSubjectDescriptor] ([AcademicSubjectDescriptorId])
+
+
+GO
+
+CREATE NONCLUSTERED INDEX [FK_SchoolStudentGrowthMeasure_AcademicSubjectDescriptor]
+ON [extension].[SchoolStudentGrowthMeasure]([AcademicSubjectDescriptorId] ASC)
+GO
+
+ALTER TABLE [extension].[SchoolStudentGrowthMeasure] WITH CHECK ADD CONSTRAINT [FK_SchoolStudentGrowthMeasure_PopulationCategoryDescriptor] FOREIGN KEY ([PopulationCategoryDescriptorId])
+REFERENCES [extension].[PopulationCategoryDescriptor] ([PopulationCategoryDescriptorId])
+
+
+GO
+
+CREATE NONCLUSTERED INDEX [FK_SchoolStudentGrowthMeasure_PopulationCategoryDescriptor]
+ON [extension].[SchoolStudentGrowthMeasure]([PopulationCategoryDescriptorId] ASC)
+GO
+
+ALTER TABLE [extension].[SchoolStudentGrowthMeasure] WITH CHECK ADD CONSTRAINT [FK_SchoolStudentGrowthMeasure_PopulationSubCategoryDescriptor] FOREIGN KEY ([PopulationSubCategoryDescriptorId])
+REFERENCES [extension].[PopulationSubCategoryDescriptor] ([PopulationSubCategoryDescriptorId])
+
+
+GO
+
+CREATE NONCLUSTERED INDEX [FK_SchoolStudentGrowthMeasure_PopulationSubCategoryDescriptor]
+ON [extension].[SchoolStudentGrowthMeasure]([PopulationSubCategoryDescriptorId] ASC)
+GO
+
+ALTER TABLE [extension].[SchoolStudentGrowthMeasure] WITH CHECK ADD CONSTRAINT [FK_SchoolStudentGrowthMeasure_School] FOREIGN KEY ([SchoolId])
+REFERENCES [edfi].[School] ([SchoolId])
+
+
+GO
+
+CREATE NONCLUSTERED INDEX [FK_SchoolStudentGrowthMeasure_School]
+ON [extension].[SchoolStudentGrowthMeasure]([SchoolId] ASC)
+GO
+
+ALTER TABLE [extension].[SchoolStudentGrowthMeasure] WITH CHECK ADD CONSTRAINT [FK_SchoolStudentGrowthMeasure_SchoolYearType] FOREIGN KEY ([SchoolYear])
+REFERENCES [edfi].[SchoolYearType] ([SchoolYear])
+
+
+GO
+
+CREATE NONCLUSTERED INDEX [FK_SchoolStudentGrowthMeasure_SchoolYearType]
+ON [extension].[SchoolStudentGrowthMeasure]([SchoolYear] ASC)
+GO
+
 ALTER TABLE [extension].[SectionCourseTranscriptFacts] WITH CHECK ADD CONSTRAINT [FK_SectionCourseTranscriptFacts_SectionStudentAcademicRecordFacts] FOREIGN KEY ([ClassPeriodName], [ClassroomIdentificationCode], [FactAsOfDate], [LocalCourseCode], [SchoolId], [SchoolYear], [SequenceOfCourse], [TermDescriptorId], [UniqueSectionCode])
 REFERENCES [extension].[SectionStudentAcademicRecordFacts] ([ClassPeriodName], [ClassroomIdentificationCode], [FactAsOfDate], [LocalCourseCode], [SchoolId], [SchoolYear], [SequenceOfCourse], [TermDescriptorId], [UniqueSectionCode])
 
@@ -20636,6 +20992,21 @@ FROM deleted;
 END
 GO
 
+/****** Trigger:  [extension].[SchoolStudentGrowthMeasure_TR_DeleteEvent] ******/
+
+CREATE TRIGGER [extension].[SchoolStudentGrowthMeasure_TR_DeleteEvent]
+    ON [extension].[SchoolStudentGrowthMeasure]
+    AFTER DELETE 
+AS
+BEGIN
+    SET NOCOUNT ON;
+    
+INSERT INTO dbo.DeleteEvent (Id, DeletionDate, TableName, SchemaName)
+SELECT Id, GETUTCDATE(), 'SchoolStudentGrowthMeasure', 'extension'
+FROM deleted;
+END
+GO
+
 /****** Trigger:  [extension].[SectionCourseTranscriptFacts_TR_DeleteEvent] ******/
 
 CREATE TRIGGER [extension].[SectionCourseTranscriptFacts_TR_DeleteEvent]
@@ -21421,6 +21792,30 @@ INSERT INTO [extension].[PerformanceMeasureType] ([CodeValue],[Description],[Sho
 INSERT INTO [extension].[PerformanceMeasureType] ([CodeValue],[Description],[ShortDescription]) VALUES ('','Self Reflection','Self Reflection')
 
 INSERT INTO [extension].[PerformanceMeasureType] ([CodeValue],[Description],[ShortDescription]) VALUES ('','Summative Observation','Summative Observation')
+
+INSERT INTO [extension].[PopulationCategoryType] ([CodeValue],[Description],[ShortDescription]) VALUES ('','EL','EL')
+
+INSERT INTO [extension].[PopulationCategoryType] ([CodeValue],[Description],[ShortDescription]) VALUES ('','NA','NA')
+
+INSERT INTO [extension].[PopulationCategoryType] ([CodeValue],[Description],[ShortDescription]) VALUES ('','PA','PA')
+
+INSERT INTO [extension].[PopulationCategoryType] ([CodeValue],[Description],[ShortDescription]) VALUES ('','SE','SE')
+
+INSERT INTO [extension].[PopulationSubCategoryType] ([CodeValue],[Description],[ShortDescription]) VALUES ('','E1','E1')
+
+INSERT INTO [extension].[PopulationSubCategoryType] ([CodeValue],[Description],[ShortDescription]) VALUES ('','E2','E2')
+
+INSERT INTO [extension].[PopulationSubCategoryType] ([CodeValue],[Description],[ShortDescription]) VALUES ('','L1','L1')
+
+INSERT INTO [extension].[PopulationSubCategoryType] ([CodeValue],[Description],[ShortDescription]) VALUES ('','L2','L2')
+
+INSERT INTO [extension].[PopulationSubCategoryType] ([CodeValue],[Description],[ShortDescription]) VALUES ('','L3','L3')
+
+INSERT INTO [extension].[PopulationSubCategoryType] ([CodeValue],[Description],[ShortDescription]) VALUES ('','L4','L4')
+
+INSERT INTO [extension].[PopulationSubCategoryType] ([CodeValue],[Description],[ShortDescription]) VALUES ('','S1','S1')
+
+INSERT INTO [extension].[PopulationSubCategoryType] ([CodeValue],[Description],[ShortDescription]) VALUES ('','S2','S2')
 
 INSERT INTO [extension].[PreviousCareerType] ([CodeValue],[Description],[ShortDescription]) VALUES ('','Accounting','Accounting')
 

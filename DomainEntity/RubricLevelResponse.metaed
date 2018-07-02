@@ -20,3 +20,8 @@ Domain Entity RubricLevelResponse
   bool AreaOfReinforcement
     documentation "Indicator that the rubric component is an area of reinforcement."
     is optional
+
+  // Tulsa extension
+  bool HalfIndicatorsScored
+    documentation "Indicates if at least 50% of indicators for each domain scored"
+    is optional

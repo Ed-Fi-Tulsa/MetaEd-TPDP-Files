@@ -320,6 +320,22 @@ COMMIT
 
 BEGIN TRANSACTION
 GO
+IF NOT EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'extension.PopulationCategoryType') AND name = N'UX_PopulationCategoryType_Id')
+CREATE UNIQUE NONCLUSTERED INDEX UX_PopulationCategoryType_Id ON extension.PopulationCategoryType
+(Id) WITH( PAD_INDEX = ON, FILLFACTOR = 100, STATISTICS_NORECOMPUTE = OFF) ON [PRIMARY]
+GO
+COMMIT
+
+BEGIN TRANSACTION
+GO
+IF NOT EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'extension.PopulationSubCategoryType') AND name = N'UX_PopulationSubCategoryType_Id')
+CREATE UNIQUE NONCLUSTERED INDEX UX_PopulationSubCategoryType_Id ON extension.PopulationSubCategoryType
+(Id) WITH( PAD_INDEX = ON, FILLFACTOR = 100, STATISTICS_NORECOMPUTE = OFF) ON [PRIMARY]
+GO
+COMMIT
+
+BEGIN TRANSACTION
+GO
 IF NOT EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'extension.PreviousCareerType') AND name = N'UX_PreviousCareerType_Id')
 CREATE UNIQUE NONCLUSTERED INDEX UX_PreviousCareerType_Id ON extension.PreviousCareerType
 (Id) WITH( PAD_INDEX = ON, FILLFACTOR = 100, STATISTICS_NORECOMPUTE = OFF) ON [PRIMARY]
@@ -435,6 +451,14 @@ GO
 IF NOT EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'extension.SchoolStatusType') AND name = N'UX_SchoolStatusType_Id')
 CREATE UNIQUE NONCLUSTERED INDEX UX_SchoolStatusType_Id ON extension.SchoolStatusType
 (Id) WITH( PAD_INDEX = ON, FILLFACTOR = 100, STATISTICS_NORECOMPUTE = OFF) ON [PRIMARY]
+GO
+COMMIT
+
+BEGIN TRANSACTION
+GO
+IF NOT EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'extension.SchoolStudentGrowthMeasure') AND name = N'UX_SchoolStudentGrowthMeasure_Id')
+CREATE UNIQUE NONCLUSTERED INDEX UX_SchoolStudentGrowthMeasure_Id ON extension.SchoolStudentGrowthMeasure
+(Id) WITH( PAD_INDEX = ON, FILLFACTOR = 75, STATISTICS_NORECOMPUTE = OFF) ON [PRIMARY]
 GO
 COMMIT
 

@@ -27,3 +27,6 @@ Interchange PK12StudentData
     association TeacherCandidateStudentGrowthMeasureCourseAssociation
     association TeacherCandidateStudentGrowthMeasureEducationOrganizationAssociation
     association TeacherCandidateStudentGrowthMeasureSectionAssociation
+
+    // Tulsa extension
+    domain entity SchoolStudentGrowthMeasure

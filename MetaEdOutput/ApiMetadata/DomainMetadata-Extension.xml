@@ -248,6 +248,18 @@
   <Aggregate root="PerformanceMeasureTypeDescriptor">
     <Entity table="PerformanceMeasureTypeDescriptor" isA="Descriptor" schema="extension"/>
   </Aggregate>
+  <Aggregate root="PopulationCategoryDescriptor">
+    <Entity table="PopulationCategoryDescriptor" isA="Descriptor" schema="extension"/>
+  </Aggregate>
+  <Aggregate root="PopulationCategoryType">
+    <Entity table="PopulationCategoryType" schema="extension"/>
+  </Aggregate>
+  <Aggregate root="PopulationSubCategoryDescriptor">
+    <Entity table="PopulationSubCategoryDescriptor" isA="Descriptor" schema="extension"/>
+  </Aggregate>
+  <Aggregate root="PopulationSubCategoryType">
+    <Entity table="PopulationSubCategoryType" schema="extension"/>
+  </Aggregate>
   <Aggregate root="PreviousCareerDescriptor">
     <Entity table="PreviousCareerDescriptor" isA="Descriptor" schema="extension"/>
   </Aggregate>
@@ -323,6 +335,9 @@
   </Aggregate>
   <Aggregate root="SchoolStatusType">
     <Entity table="SchoolStatusType" schema="extension"/>
+  </Aggregate>
+  <Aggregate root="SchoolStudentGrowthMeasure">
+    <Entity table="SchoolStudentGrowthMeasure" schema="extension"/>
   </Aggregate>
   <Aggregate root="SectionCourseTranscriptFacts">
     <Entity table="SectionCourseTranscriptFacts" schema="extension"/>

@@ -1,0 +1,6 @@
+// Tulsa extension
+Domain Entity LeaveEvent additions
+  string PayCodeID
+  documentation "The Pay Code ID column identifies the pay code to which the edit applies"
+  is optional
+  max length 4

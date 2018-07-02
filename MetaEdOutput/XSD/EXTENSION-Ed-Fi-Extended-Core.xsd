@@ -8,6 +8,65 @@
   <xs:annotation>
     <xs:documentation>===== Domain Entities =====</xs:documentation>
   </xs:annotation>
+  <xs:complexType name="EXTENSION-AccountExtension">
+    <xs:annotation>
+      <xs:documentation></xs:documentation>
+      <xs:appinfo>
+        <ann:TypeGroup>Domain Entity</ann:TypeGroup>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="Account">
+        <xs:sequence>
+          <xs:element name="ActualPurchaseOrderCarryForwardCurrentYear" type="Currency" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>Actual purchase order carry-forward current year.  Actual expenses paid on carry forward PO in current year</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="ActualCurrentYear" type="Currency" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>CurrentYear and Carry Forward expenses in Current Year</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="CarryForwardCurrentYear" type="Currency" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>Amount of Carry Forward PO's carried into current year</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="CarryForwardTransferCurrentYear" type="Currency" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>Carry forward transfers done in the current year</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="EncumbPurchaseOrderCarryForwardCurrentYear" type="Currency" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>Amount of carry forward PO's currently encumbered in current year</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="EncumbranceCurrentYear" type="Currency" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>Current year encumbrance.</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="LongDescription" type="EXTENSION-LongDescription" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>Long description of the account</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="RequisitionCurrentYear" type="Currency" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>Current year RQ's</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="RevisedCurrentYear" type="Currency" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>Current year revised budget</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
   <xs:complexType name="EXTENSION-AnonymizedStudent">
     <xs:annotation>
       <xs:documentation>Domain entity to collect data for indiviudal students with whom the teacher candidate is associated through field work or student teaching</xs:documentation>
@@ -1729,6 +1788,25 @@
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
+  <xs:complexType name="EXTENSION-LeaveEventExtension">
+    <xs:annotation>
+      <xs:documentation></xs:documentation>
+      <xs:appinfo>
+        <ann:TypeGroup>Domain Entity</ann:TypeGroup>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="LeaveEvent">
+        <xs:sequence>
+          <xs:element name="PayCodeID" type="EXTENSION-PayCodeID" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>The Pay Code ID column identifies the pay code to which the edit applies</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
   <xs:complexType name="EXTENSION-PerformanceMeasure">
     <xs:annotation>
       <xs:documentation>Information about the performance measure</xs:documentation>
@@ -2271,6 +2349,11 @@
               <xs:documentation>Indicator that the rubric component is an area of reinforcement.</xs:documentation>
             </xs:annotation>
           </xs:element>
+          <xs:element name="HalfIndicatorsScored" type="xs:boolean" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>Indicates if at least 50% of indicators for each domain scored</xs:documentation>
+            </xs:annotation>
+          </xs:element>
         </xs:sequence>
       </xs:extension>
     </xs:complexContent>
@@ -2325,6 +2408,84 @@
           <xs:element name="ImprovingSchool" type="xs:boolean" minOccurs="0">
             <xs:annotation>
               <xs:documentation>An indication of whether a school is identified as an improving school.</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="EXTENSION-SchoolStudentGrowthMeasure">
+    <xs:annotation>
+      <xs:documentation>Complex type that provides data about a group of students and their student growth as it pertains to a school</xs:documentation>
+      <xs:appinfo>
+        <ann:TypeGroup>Domain Entity</ann:TypeGroup>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="ComplexObjectType">
+        <xs:sequence>
+          <xs:element name="SchoolReference" type="SchoolReferenceType">
+            <xs:annotation>
+              <xs:documentation>School ID associated with a VAM</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="SchoolYear" type="SchoolYearType">
+            <xs:annotation>
+              <xs:documentation>The school year for which the data is associated</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="FactAsOfDate" type="xs:date">
+            <xs:annotation>
+              <xs:documentation>The date for which the data element is relevant</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="StudentGrowthActualScore" type="xs:int">
+            <xs:annotation>
+              <xs:documentation>The actual score a group of students receives on their student growth assessment</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="StudentGrowthMet" type="xs:boolean">
+            <xs:annotation>
+              <xs:documentation>Identifies if the student has met the student growth target score</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="StudentGrowthNCount" type="xs:int" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>The number of students included in the average score result.</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="AcademicSubject" type="AcademicSubjectDescriptorReferenceType" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>The academic subject associated with the VAM</xs:documentation>
+              <xs:appinfo>
+                <ann:Descriptor>AcademicSubjectDescriptor</ann:Descriptor>
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="PopulationCategory" type="EXTENSION-PopulationCategoryDescriptorReferenceType">
+            <xs:annotation>
+              <xs:documentation>Section of the school that is associated with a VAM</xs:documentation>
+              <xs:appinfo>
+                <ann:Descriptor>EXTENSION-PopulationCategoryDescriptor</ann:Descriptor>
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="PopulationSubCategory" type="EXTENSION-PopulationSubCategoryDescriptorReferenceType">
+            <xs:annotation>
+              <xs:documentation>Section of the school that is associated with a VAM</xs:documentation>
+              <xs:appinfo>
+                <ann:Descriptor>EXTENSION-PopulationSubCategoryDescriptor</ann:Descriptor>
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="SupLowN" type="xs:boolean">
+            <xs:annotation>
+              <xs:documentation>Denotes reason for suppression</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="SupressionFlag" type="xs:boolean">
+            <xs:annotation>
+              <xs:documentation>Denotes if suppressed or not</xs:documentation>
             </xs:annotation>
           </xs:element>
         </xs:sequence>
@@ -3285,6 +3446,11 @@
           <xs:element name="SurveyResponseReference" type="EXTENSION-SurveyResponseReferenceType">
             <xs:annotation>
               <xs:documentation>Reference to the Survey Response.</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="StudentSurveyNCount" type="xs:int" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>Indicated how many students took the survey</xs:documentation>
             </xs:annotation>
           </xs:element>
         </xs:sequence>
@@ -4284,6 +4450,44 @@
           <xs:element name="PerformanceMeasureTypeMap" type="EXTENSION-PerformanceMeasureTypeMapType" minOccurs="0">
             <xs:annotation>
               <xs:documentation>The mapping to a known PerformanceMeasureType enumeration type.</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="EXTENSION-PopulationCategoryDescriptor">
+    <xs:annotation>
+      <xs:documentation>Section of the school that is associated with a VAM</xs:documentation>
+      <xs:appinfo>
+        <ann:TypeGroup>Descriptor</ann:TypeGroup>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="DescriptorType">
+        <xs:sequence>
+          <xs:element name="PopulationCategoryMap" type="EXTENSION-PopulationCategoryMapType">
+            <xs:annotation>
+              <xs:documentation>The mapping to a known PopulationCategory enumeration type.</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="EXTENSION-PopulationSubCategoryDescriptor">
+    <xs:annotation>
+      <xs:documentation>Section of the school that is associated with a VAM</xs:documentation>
+      <xs:appinfo>
+        <ann:TypeGroup>Descriptor</ann:TypeGroup>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="DescriptorType">
+        <xs:sequence>
+          <xs:element name="PopulationSubCategoryMap" type="EXTENSION-PopulationSubCategoryMapType">
+            <xs:annotation>
+              <xs:documentation>The mapping to a known PopulationSubCategory enumeration type.</xs:documentation>
             </xs:annotation>
           </xs:element>
         </xs:sequence>
@@ -6602,6 +6806,50 @@
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
+  <xs:complexType name="EXTENSION-SchoolStudentGrowthMeasureIdentityType">
+    <xs:annotation>
+      <xs:documentation>Identity of a SchoolStudentGrowthMeasure.</xs:documentation>
+      <xs:appinfo>
+        <ann:TypeGroup>Identity</ann:TypeGroup>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="SchoolReference" type="SchoolReferenceType">
+        <xs:annotation>
+          <xs:documentation>School ID associated with a VAM</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="SchoolYear" type="SchoolYearType">
+        <xs:annotation>
+          <xs:documentation>The school year for which the data is associated</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="FactAsOfDate" type="xs:date">
+        <xs:annotation>
+          <xs:documentation>The date for which the data element is relevant</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="EXTENSION-SchoolStudentGrowthMeasureReferenceType">
+    <xs:annotation>
+      <xs:documentation>Provides alternative references for a SchoolStudentGrowthMeasure. Use XML IDREF to reference a record that is included in the interchange. Use the identity type to look up a record that was loaded previously.</xs:documentation>
+      <xs:appinfo>
+        <ann:TypeGroup>Extended Reference</ann:TypeGroup>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="ReferenceType">
+        <xs:sequence>
+          <xs:element name="SchoolStudentGrowthMeasureIdentity" type="EXTENSION-SchoolStudentGrowthMeasureIdentityType" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>Identity of a SchoolStudentGrowthMeasure.</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
   <xs:complexType name="EXTENSION-SectionCourseTranscriptFactsIdentityType">
     <xs:annotation>
       <xs:documentation>Identity of a SectionCourseTranscriptFacts.</xs:documentation>
@@ -8283,6 +8531,28 @@
   <xs:complexType name="EXTENSION-PerformanceMeasureTypeDescriptorReferenceType">
     <xs:annotation>
       <xs:documentation>Provides references for performance measure type descriptor and its details during interchange. Use XML IDREF to reference a record that is included in the interchange.</xs:documentation>
+      <xs:appinfo>
+        <ann:TypeGroup>Extended Descriptor Reference</ann:TypeGroup>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="DescriptorReferenceType" />
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="EXTENSION-PopulationCategoryDescriptorReferenceType">
+    <xs:annotation>
+      <xs:documentation>Provides references for population category descriptor and its details during interchange. Use XML IDREF to reference a record that is included in the interchange.</xs:documentation>
+      <xs:appinfo>
+        <ann:TypeGroup>Extended Descriptor Reference</ann:TypeGroup>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="DescriptorReferenceType" />
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="EXTENSION-PopulationSubCategoryDescriptorReferenceType">
+    <xs:annotation>
+      <xs:documentation>Provides references for population sub category descriptor and its details during interchange. Use XML IDREF to reference a record that is included in the interchange.</xs:documentation>
       <xs:appinfo>
         <ann:TypeGroup>Extended Descriptor Reference</ann:TypeGroup>
       </xs:appinfo>
@@ -10726,6 +10996,86 @@
       </xs:enumeration>
     </xs:restriction>
   </xs:simpleType>
+  <xs:simpleType name="EXTENSION-PopulationCategoryMapType">
+    <xs:annotation>
+      <xs:documentation>Section of the school that is associated with a VAM</xs:documentation>
+      <xs:appinfo>
+        <ann:TypeGroup>Enumeration</ann:TypeGroup>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:restriction base="xs:token">
+      <xs:enumeration value="NA">
+        <xs:annotation>
+          <xs:documentation>Overall (No Specific Category)</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="EL">
+        <xs:annotation>
+          <xs:documentation>English Language Learner</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="PA">
+        <xs:annotation>
+          <xs:documentation>Prior Achievement (validator, not a group of students)</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="SE">
+        <xs:annotation>
+          <xs:documentation>Special Education</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="EXTENSION-PopulationSubCategoryMapType">
+    <xs:annotation>
+      <xs:documentation>Section of the school that is associated with a VAM</xs:documentation>
+      <xs:appinfo>
+        <ann:TypeGroup>Enumeration</ann:TypeGroup>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:restriction base="xs:token">
+      <xs:enumeration value="E1">
+        <xs:annotation>
+          <xs:documentation>English Language Learner</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="E2">
+        <xs:annotation>
+          <xs:documentation>NOT English Language Learner</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="S1">
+        <xs:annotation>
+          <xs:documentation>Special Education</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="S2">
+        <xs:annotation>
+          <xs:documentation>NOT Special Education</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="L1">
+        <xs:annotation>
+          <xs:documentation>Level 1 Prior Achievement (Not Proficient)</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="L2">
+        <xs:annotation>
+          <xs:documentation>Level 2 Prior Achievement (Not Proficient)</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="L3">
+        <xs:annotation>
+          <xs:documentation>Level 3 Prior Achievement (Proficient)</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="L4">
+        <xs:annotation>
+          <xs:documentation>Level 4 Prior Achievement (Proficient)</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
   <xs:simpleType name="EXTENSION-PreviousCareerMapType">
     <xs:annotation>
       <xs:documentation>Map for the type of previous careers.</xs:documentation>
@@ -11567,6 +11917,17 @@
       <xs:maxLength value="60" />
     </xs:restriction>
   </xs:simpleType>
+  <xs:simpleType name="EXTENSION-LongDescription">
+    <xs:annotation>
+      <xs:documentation>Long description of the account</xs:documentation>
+      <xs:appinfo>
+        <ann:TypeGroup>Simple</ann:TypeGroup>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="30" />
+    </xs:restriction>
+  </xs:simpleType>
   <xs:simpleType name="EXTENSION-MajorSpecialization">
     <xs:annotation>
       <xs:documentation>The major area for a degree or area of specialization for a certificate.</xs:documentation>
@@ -11601,6 +11962,17 @@
     <xs:restriction base="xs:string">
       <xs:minLength value="1" />
       <xs:maxLength value="255" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="EXTENSION-PayCodeID">
+    <xs:annotation>
+      <xs:documentation>The Pay Code ID column identifies the pay code to which the edit applies</xs:documentation>
+      <xs:appinfo>
+        <ann:TypeGroup>Simple</ann:TypeGroup>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="4" />
     </xs:restriction>
   </xs:simpleType>
   <xs:simpleType name="EXTENSION-PerformanceMeasureIdentifier">

@@ -16,7 +16,7 @@ The Staff domain represents a wide variety of staff information:
 |-----------------|------------------|
 | EducationOrganization | This entity represents any public or private institution, organization, or agency that provides instructional or support services to students or staff at any level. |
 | EducationServiceCenter | This entity represents a regional, multi-services public agency authorized by state law to develop, manage and provide services, programs, or other support options (e.g., construction, food services, and technology services) to LEAs. |
-| LeaveEvent | This event entity represents the recording of the dates of staff leave (e.g., sick leave, personal time, vacation). |
+| LeaveEvent |  |
 | LocalEducationAgency | This entity represents an administrative unit at the local level which exists primarily to operate schools or to contract for educational services. It includes school districts, charter schools, charter management organizations, or other local administrative organizations. |
 | OpenStaffPosition | This entity represents an open staff position that the education organization is seeking to fill. |
 | School |  |

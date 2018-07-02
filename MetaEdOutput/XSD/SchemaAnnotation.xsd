@@ -78,6 +78,8 @@
       <xs:enumeration value="LevelOfDegreeAwardedDescriptor" />
       <xs:enumeration value="LevelTypeDescriptor" />
       <xs:enumeration value="PerformanceMeasureTypeDescriptor" />
+      <xs:enumeration value="PopulationCategoryDescriptor" />
+      <xs:enumeration value="PopulationSubCategoryDescriptor" />
       <xs:enumeration value="PreviousCareerDescriptor" />
       <xs:enumeration value="ProfessionalDevelopmentOfferedByDescriptor" />
       <xs:enumeration value="ProgramGatewayDescriptor" />

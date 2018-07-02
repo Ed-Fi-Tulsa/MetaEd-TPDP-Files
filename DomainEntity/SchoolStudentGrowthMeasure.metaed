@@ -1,0 +1,36 @@
+// Tulsa extension
+Domain Entity SchoolStudentGrowthMeasure
+  documentation "Complex type that provides data about a group of students and their student growth as it pertains to a school"
+  domain entity School
+    documentation "School ID associated with a VAM"
+    is part of identity
+  enumeration SchoolYear
+    documentation "The school year for which the data is associated"
+    is part of identity
+  date FactAsOfDate
+    documentation "The date for which the data element is relevant"
+    is part of identity
+  integer StudentGrowthActualScore
+    documentation "The actual score a group of students receives on their student growth assessment"
+    is required
+  bool StudentGrowthMet
+    documentation "Identifies if the student has met the student growth target score"
+    is required
+  integer StudentGrowthNCount
+    documentation "The number of students included in the average score result."
+    is optional
+  descriptor AcademicSubject
+    documentation "The academic subject associated with the VAM"
+    is optional
+  descriptor PopulationCategory
+    documentation "Section of the school that is associated with a VAM"
+    is required
+  descriptor PopulationSubCategory
+    documentation "Section of the school that is associated with a VAM"
+    is required
+  bool SupLowN
+    documentation "Denotes reason for suppression"
+    is required
+  bool SupressionFlag
+    documentation "Denotes if suppressed or not"
+    is required

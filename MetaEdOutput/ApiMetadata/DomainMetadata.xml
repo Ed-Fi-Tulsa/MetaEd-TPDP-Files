@@ -558,7 +558,6 @@
     <Entity table="ObjectiveAssessmentLearningObjective"/>
     <Entity table="ObjectiveAssessmentLearningStandard"/>
     <Entity table="ObjectiveAssessmentPerformanceLevel"/>
-    <Entity table="ObjectiveAssessmentScore"/>
   </Aggregate>
   <Aggregate root="OldEthnicityType">
     <Entity table="OldEthnicityType"/>

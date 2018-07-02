@@ -13,7 +13,7 @@ Core to the Finance model is the Account entity, representing the chart of accou
 
 | Name        | Description  |
 |-----------------|------------------|
-| Account | This financial entity represents a funding source combined with its purpose and type of transaction. It provides a formal record of the debits and credits relating to the specific account. |
+| Account |  |
 | Actual | This financial entity represents the sum of the financial transactions to date relating to a specific account. |
 | Budget | This financial entity represents the amount of monies allocated to be spent or received by an education organization as related to a specific account. |
 | ContractedStaff | This financial entity represents the sum of the financial transactions to date for contracted staff. ContractedStaff includes "contractors" or "consultants" who perform services for an agreed upon fee, or an employee of a management service contracted to work on site. |

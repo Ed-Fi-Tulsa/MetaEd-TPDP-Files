@@ -29,15 +29,17 @@
     <Element name="PreviousCareerDescriptor" />
     <Element name="StudentCharacteristicDescriptor" />
     <Element name="CountryDescriptor" />
+    <Element name="FederalLocaleCodeDescriptor" />
+    <Element name="AdministrativeFundingControlDescriptor" />
+    <Element name="SchoolStatusDescriptor" />
+    <Element name="PopulationCategoryDescriptor" />
+    <Element name="PopulationSubCategoryDescriptor" />
     <Element name="ProfessionalDevelopmentOfferedByDescriptor" />
     <Element name="AttendanceEventCategoryDescriptor" />
     <Element name="SurveyCategoryDescriptor" />
     <Element name="ProgramCharacteristicDescriptor" />
     <Element name="ServiceDescriptor" />
     <Element name="TPPDegreeTypeDescriptor" />
-    <Element name="FederalLocaleCodeDescriptor" />
-    <Element name="AdministrativeFundingControlDescriptor" />
-    <Element name="SchoolStatusDescriptor" />
     <Element name="AbsenceEventCategoryDescriptor" />
     <Element name="FieldworkTypeDescriptor" />
     <Element name="EntryTypeDescriptor" />
@@ -107,11 +109,11 @@
   </Interchange>
   <Interchange name="EducationOrganization" order="40">
     <Element name="Course" />
-    <Element name="Program" />
     <Element name="StateEducationAgency" />
     <Element name="EducationServiceCenter" />
     <Element name="LocalEducationAgency" />
     <Element name="School" />
+    <Element name="Program" />
     <Element name="University" />
     <Element name="TeacherPreparationProvider" />
     <Element name="TeacherPreparationProviderProgram" />
@@ -215,6 +217,7 @@
     <Element name="TeacherCandidateStudentGrowthMeasureCourseAssociation" />
     <Element name="TeacherCandidateStudentGrowthMeasureEducationOrganizationAssociation" />
     <Element name="TeacherCandidateStudentGrowthMeasureSectionAssociation" />
+    <Element name="SchoolStudentGrowthMeasure" />
   </Interchange>
   <Interchange name="StudentGrade" order="90">
     <Element name="LearningObjective" />
@@ -247,7 +250,7 @@
     <Element name="SurveyQuestionResponse" />
     <Element name="SurveySectionResponseRating" />
   </Interchange>
-  <Interchange name="Finance" order="130">
+  <Interchange name="Finance" order="120">
     <Element name="Account" />
     <Element name="Actual" />
     <Element name="Budget" />

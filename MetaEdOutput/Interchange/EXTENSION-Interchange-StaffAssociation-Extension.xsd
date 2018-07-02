@@ -16,7 +16,7 @@
         <xs:element name="StaffEducationOrganizationAssignmentAssociation" type="EXTENSION-StaffEducationOrganizationAssignmentAssociationExtension" />
         <xs:element name="StaffSchoolAssociation" type="StaffSchoolAssociation" />
         <xs:element name="StaffSectionAssociation" type="StaffSectionAssociation" />
-        <xs:element name="LeaveEvent" type="LeaveEvent" />
+        <xs:element name="LeaveEvent" type="EXTENSION-LeaveEventExtension" />
         <xs:element name="OpenStaffPosition" type="OpenStaffPosition" />
         <xs:element name="StaffProgramAssociation" type="StaffProgramAssociation" />
         <xs:element name="Credential" type="EXTENSION-CredentialExtension" />

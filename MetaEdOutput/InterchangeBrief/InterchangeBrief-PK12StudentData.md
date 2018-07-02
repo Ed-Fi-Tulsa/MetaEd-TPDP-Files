@@ -50,6 +50,7 @@ The following table describes the primary entities of which the P K12 Student Da
 | TeacherCandidateStudentGrowthMeasureCourseAssociation | Any courses associated with the teacher candidate's student growth data, if applicable. |
 | TeacherCandidateStudentGrowthMeasureEducationOrganizationAssociation | Any education organizations associated with the teacher candidate's student growth data, if applicable. |
 | TeacherCandidateStudentGrowthMeasureSectionAssociation | Any sections associated with the teacher candidate's student growth data, if applicable. |
+| SchoolStudentGrowthMeasure | Complex type that provides data about a group of students and their student growth as it pertains to a school |
 
 
 
@@ -77,6 +78,7 @@ This interchange includes the following Extended References.
 | EducationOrganizationReference (in EducationOrganizationStudentFacts) | Required.  The education organization associated with aggregated student data |
 | EducationOrganizationReference (in StaffStudentGrowthMeasureEducationOrganizationAssociation) | Required.  The EducationOrganization reference for the association |
 | EducationOrganizationReference (in TeacherCandidateStudentGrowthMeasureEducationOrganizationAssociation) | Required.  The EducationOrganization reference for the association |
+| SchoolReference (in SchoolStudentGrowthMeasure) | Required.  School ID associated with a VAM |
 | SectionReference (in AnonymizedStudent) | Optional.  The section associated with aggregated student data |
 | SectionReference (in AnonymizedStudentAssessment) | Optional.  The section associated with aggregated student data |
 | SectionReference (in AnonymizedStudentSectionAssociation) | Required.  The Section reference for the assocation |
@@ -102,6 +104,8 @@ This interchange references the following Ed-Fi Descriptors, thus requiring them
 | GradeLevelDescriptor | Optional.  This descriptor defines the set of grade levels. The map to known Ed-Fi enumeration values is required. |
 | LanguageDescriptor | Optional.  This descriptor defines the language(s) that are spoken or written. |
 | PerformanceLevelDescriptor | Optional.  This descriptor defines various levels or thresholds for performance on the assessment. |
+| PopulationCategoryDescriptor | Required.  Section of the school that is associated with a VAM |
+| PopulationSubCategoryDescriptor | Required.  Section of the school that is associated with a VAM |
 | SchoolFoodServicesEligibilityDescriptor | Optional.  This descriptor defines indications of a student's level of eligibility for breakfast, lunch, snack, supper, and milk programs. |
 | StudentGrowthTypeDescriptor | Optional.  Identification of the type of score that was used to determine student growth |
 | TermDescriptor | Required.  This descriptor defines the term of a session during the school year (e.g., Fall Semester). |

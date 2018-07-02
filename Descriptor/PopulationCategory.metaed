@@ -1,0 +1,12 @@
+Descriptor PopulationCategory
+  documentation "Section of the school that is associated with a VAM"
+  with map type
+    documentation "Section of the school that is associated with a VAM"
+    item "NA"
+      documentation "Overall (No Specific Category)"
+    item "EL"
+      documentation "English Language Learner"
+    item "PA"
+      documentation "Prior Achievement (validator, not a group of students)"
+    item "SE"
+      documentation "Special Education"

@@ -38,6 +38,7 @@
         <xs:element name="TeacherCandidateStudentGrowthMeasureCourseAssociation" type="EXTENSION-TeacherCandidateStudentGrowthMeasureCourseAssociation" />
         <xs:element name="TeacherCandidateStudentGrowthMeasureEducationOrganizationAssociation" type="EXTENSION-TeacherCandidateStudentGrowthMeasureEducationOrganizationAssociation" />
         <xs:element name="TeacherCandidateStudentGrowthMeasureSectionAssociation" type="EXTENSION-TeacherCandidateStudentGrowthMeasureSectionAssociation" />
+        <xs:element name="SchoolStudentGrowthMeasure" type="EXTENSION-SchoolStudentGrowthMeasure" />
       </xs:choice>
     </xs:complexType>
   </xs:element>

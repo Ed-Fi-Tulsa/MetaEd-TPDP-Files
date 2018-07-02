@@ -74,6 +74,8 @@ The Descriptor interchange is used to describe metadata about the descriptors an
         <xs:element name="LevelOfDegreeAwardedDescriptor" type="EXTENSION-LevelOfDegreeAwardedDescriptor" />
         <xs:element name="LevelTypeDescriptor" type="EXTENSION-LevelTypeDescriptor" />
         <xs:element name="PerformanceMeasureTypeDescriptor" type="EXTENSION-PerformanceMeasureTypeDescriptor" />
+        <xs:element name="PopulationCategoryDescriptor" type="EXTENSION-PopulationCategoryDescriptor" />
+        <xs:element name="PopulationSubCategoryDescriptor" type="EXTENSION-PopulationSubCategoryDescriptor" />
         <xs:element name="PreviousCareerDescriptor" type="EXTENSION-PreviousCareerDescriptor" />
         <xs:element name="ProfessionalDevelopmentOfferedByDescriptor" type="EXTENSION-ProfessionalDevelopmentOfferedByDescriptor" />
         <xs:element name="ProgramGatewayDescriptor" type="EXTENSION-ProgramGatewayDescriptor" />

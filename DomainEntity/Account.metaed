@@ -1,0 +1,30 @@
+// Tulsa extension
+Domain Entity Account additions
+  currency ActualPurchaseOrderCarryForwardCurrentYear
+    documentation "Actual purchase order carry-forward current year.  Actual expenses paid on carry forward PO in current year"
+    is optional
+  currency ActualCurrentYear
+    documentation "CurrentYear and Carry Forward expenses in Current Year"
+    is optional
+  currency CarryForwardCurrentYear
+    documentation "Amount of Carry Forward PO's carried into current year"
+    is optional
+  currency CarryForwardTransferCurrentYear
+    documentation "Carry forward transfers done in the current year"
+    is optional
+  currency EncumbPurchaseOrderCarryForwardCurrentYear
+    documentation "Amount of carry forward PO's currently encumbered in current year"
+    is optional
+  currency EncumbranceCurrentYear
+    documentation "Current year encumbrance."
+    is optional
+  string LongDescription
+    documentation "Long description of the account"
+    is optional
+    max length 30
+  currency RequisitionCurrentYear
+    documentation "Current year RQ's"
+    is optional
+  currency RevisedCurrentYear
+    documentation "Current year revised budget"
+    is optional
