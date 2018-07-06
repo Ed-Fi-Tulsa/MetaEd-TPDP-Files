@@ -11,4 +11,8 @@
 		<Filename>Interchange-Descriptors-TPDP.xml</Filename>
 		<Type>descriptors</Type>
 	</Interchange>
+	<Interchange>
+		<Filename>Interchange-Descriptors-Tulsa.xml</Filename>
+		<Type>descriptors</Type>
+	</Interchange>
 </Interchanges>

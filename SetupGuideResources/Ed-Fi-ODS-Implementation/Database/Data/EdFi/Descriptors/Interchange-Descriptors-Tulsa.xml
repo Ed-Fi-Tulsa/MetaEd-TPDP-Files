@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<InterchangeDescriptors xmlns="http://ed-fi.org/0200" xmlns:ann="http://ed-fi.org/annotation" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<PopulationCategoryDescriptor>
+		<CodeValue>NA</CodeValue>
+		<ShortDescription>NA</ShortDescription>
+		<Description>Overall (No Specific Category)</Description>
+		<Namespace>http://tulsaschools.org/Descriptor/PopulationCategoryDescriptor.xml</Namespace>
+		<PopulationCategoryMap>NA</PopulationCategoryMap>
+	</PopulationCategoryDescriptor>
+	<PopulationCategoryDescriptor>
+		<CodeValue>EL</CodeValue>
+		<ShortDescription>EL</ShortDescription>
+		<Description>English Language Learner</Description>
+		<Namespace>http://tulsaschools.org/Descriptor/PopulationCategoryDescriptor.xml</Namespace>
+		<PopulationCategoryMap>EL</PopulationCategoryMap>
+	</PopulationCategoryDescriptor>
+	<PopulationCategoryDescriptor>
+		<CodeValue>PA</CodeValue>
+		<ShortDescription>PA</ShortDescription>
+		<Description>Prior Achievement (validator, not a group of students)</Description>
+		<Namespace>http://tulsaschools.org/Descriptor/PopulationCategoryDescriptor.xml</Namespace>
+		<PopulationCategoryMap>PA</PopulationCategoryMap>
+	</PopulationCategoryDescriptor>
+	<PopulationCategoryDescriptor>
+		<CodeValue>SE</CodeValue>
+		<ShortDescription>SE</ShortDescription>
+		<Description>Special Education</Description>
+		<Namespace>http://tulsaschools.org/Descriptor/PopulationCategoryDescriptor.xml</Namespace>
+		<PopulationCategoryMap>SE</PopulationCategoryMap>
+	</PopulationCategoryDescriptor>
+	<PopulationSubCategoryDescriptor>
+		<CodeValue>E1</CodeValue>
+		<ShortDescription>E1</ShortDescription>
+		<Description>English Language Learner</Description>
+		<Namespace>http://tulsaschools.org/Descriptor/PopulationSubCategoryDescriptor.xml</Namespace>
+		<PopulationSubCategoryMap>E1</PopulationSubCategoryMap>
+	</PopulationSubCategoryDescriptor>
+	<PopulationSubCategoryDescriptor>
+		<CodeValue>E2</CodeValue>
+		<ShortDescription>E2</ShortDescription>
+		<Description>NOT English Language Learner</Description>
+		<Namespace>http://tulsaschools.org/Descriptor/PopulationSubCategoryDescriptor.xml</Namespace>
+		<PopulationSubCategoryMap>E2</PopulationSubCategoryMap>
+	</PopulationSubCategoryDescriptor>
+	<PopulationSubCategoryDescriptor>
+		<CodeValue>S1</CodeValue>
+		<ShortDescription>S1</ShortDescription>
+		<Description>Special Education</Description>
+		<Namespace>http://tulsaschools.org/Descriptor/PopulationSubCategoryDescriptor.xml</Namespace>
+		<PopulationSubCategoryMap>S1</PopulationSubCategoryMap>
+	</PopulationSubCategoryDescriptor>
+	<PopulationSubCategoryDescriptor>
+		<CodeValue>S2</CodeValue>
+		<ShortDescription>S2</ShortDescription>
+		<Description>NOT Special Education</Description>
+		<Namespace>http://tulsaschools.org/Descriptor/PopulationSubCategoryDescriptor.xml</Namespace>
+		<PopulationSubCategoryMap>S2</PopulationSubCategoryMap>
+	</PopulationSubCategoryDescriptor>
+	<PopulationSubCategoryDescriptor>
+		<CodeValue>L1</CodeValue>
+		<ShortDescription>L1</ShortDescription>
+		<Description>Level 1 Prior Achievement (Not Proficient)</Description>
+		<Namespace>http://tulsaschools.org/Descriptor/PopulationSubCategoryDescriptor.xml</Namespace>
+		<PopulationSubCategoryMap>L1</PopulationSubCategoryMap>
+	</PopulationSubCategoryDescriptor>
+	<PopulationSubCategoryDescriptor>
+		<CodeValue>L2</CodeValue>
+		<ShortDescription>L2</ShortDescription>
+		<Description>Level 2 Prior Achievement (Not Proficient)</Description>
+		<Namespace>http://tulsaschools.org/Descriptor/PopulationSubCategoryDescriptor.xml</Namespace>
+		<PopulationSubCategoryMap>L2</PopulationSubCategoryMap>
+	</PopulationSubCategoryDescriptor>
+	<PopulationSubCategoryDescriptor>
+		<CodeValue>L3</CodeValue>
+		<ShortDescription>L3</ShortDescription>
+		<Description>Level 3 Prior Achievement (Proficient)</Description>
+		<Namespace>http://tulsaschools.org/Descriptor/PopulationSubCategoryDescriptor.xml</Namespace>
+		<PopulationSubCategoryMap>L3</PopulationSubCategoryMap>
+	</PopulationSubCategoryDescriptor>
+	<PopulationSubCategoryDescriptor>
+		<CodeValue>L4</CodeValue>
+		<ShortDescription>L4</ShortDescription>
+		<Description>Level 4 Prior Achievement (Proficient)</Description>
+		<Namespace>http://tulsaschools.org/Descriptor/PopulationSubCategoryDescriptor.xml</Namespace>
+		<PopulationSubCategoryMap>L4</PopulationSubCategoryMap>
+	</PopulationSubCategoryDescriptor>
+</InterchangeDescriptors>
