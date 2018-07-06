@@ -747,6 +747,19 @@ StaffUSI
 EducationOrganizationId
 StaffClassificationDescriptorId
 BeginDate
+<br />extension.StaffEducationOrganizationAssignmentAssociationExtension
+
+BeginDate [DATE] NOT NULL
+EducationOrganizationId [INT] NOT NULL
+StaffClassificationDescriptorId [INT] NOT NULL
+StaffUSI [INT] NOT NULL
+YearsOfExperienceAtCurrentEducationOrganization [DECIMAL](5, 2) NULL
+
+Primary Keys:
+BeginDate
+EducationOrganizationId
+StaffClassificationDescriptorId
+StaffUSI
 </pre></div>
             </div>
         </p>
@@ -961,7 +974,7 @@ ProgramName
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">References:</div>
-                <div><br />Contains:<br />AcademicSubject (optional collection)<br />GradeLevel (optional collection)<br />ProgramAssignment (identity)<br />School (identity)<br />SchoolYear (identity)<br />Staff (identity)<br /></div>
+                <div><br />Contains:<br />AcademicSubject (optional collection)<br />GradeLevel (optional collection)<br />ProgramAssignment (identity)<br />School (identity)<br />SchoolYear (optional)<br />Staff (identity)<br /></div>
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">XSD:</div>
@@ -985,7 +998,7 @@ ProgramName
             &lt;xs:documentation&gt;The School where the Staff member provides services.&lt;/xs:documentation&gt;
           &lt;/xs:annotation&gt;
         &lt;/xs:element&gt;
-        &lt;xs:element name=&quot;SchoolYear&quot; type=&quot;SchoolYearType&quot;&gt;
+        &lt;xs:element name=&quot;SchoolYear&quot; type=&quot;SchoolYearType&quot; minOccurs=&quot;0&quot;&gt;
           &lt;xs:annotation&gt;
             &lt;xs:documentation&gt;Identifier for a school year.&lt;/xs:documentation&gt;
           &lt;/xs:annotation&gt;
@@ -1030,8 +1043,8 @@ ProgramName
 
 ProgramAssignmentDescriptorId [INT] NOT NULL
 SchoolId [INT] NOT NULL
-SchoolYear [SMALLINT] NOT NULL
 StaffUSI [INT] NOT NULL
+SchoolYear [SMALLINT] NULL
 CreateDate [DATETIME] NOT NULL
 LastModifiedDate [DATETIME] NOT NULL
 Id [UNIQUEIDENTIFIER] NOT NULL
@@ -1045,7 +1058,6 @@ SchoolId
 AcademicSubjectDescriptorId [INT] NOT NULL
 ProgramAssignmentDescriptorId [INT] NOT NULL
 SchoolId [INT] NOT NULL
-SchoolYear [SMALLINT] NOT NULL
 StaffUSI [INT] NOT NULL
 CreateDate [DATETIME] NOT NULL
 
@@ -1059,7 +1071,6 @@ AcademicSubjectDescriptorId
 GradeLevelDescriptorId [INT] NOT NULL
 ProgramAssignmentDescriptorId [INT] NOT NULL
 SchoolId [INT] NOT NULL
-SchoolYear [SMALLINT] NOT NULL
 StaffUSI [INT] NOT NULL
 CreateDate [DATETIME] NOT NULL
 
@@ -22517,6 +22528,25 @@ EducationOrganizationId
 AccountNumber
 FiscalYear
 AccountCodeDescriptorId
+<br />extension.AccountExtension
+
+AccountNumber [NVARCHAR](50) NOT NULL
+EducationOrganizationId [INT] NOT NULL
+FiscalYear [INT] NOT NULL
+ActualPurchaseOrderCarryForwardCurrentYear [MONEY] NULL
+ActualCurrentYear [MONEY] NULL
+CarryForwardCurrentYear [MONEY] NULL
+CarryForwardTransferCurrentYear [MONEY] NULL
+EncumbPurchaseOrderCarryForwardCurrentYear [MONEY] NULL
+EncumbranceCurrentYear [MONEY] NULL
+LongDescription [NVARCHAR](30) NULL
+RequisitionCurrentYear [MONEY] NULL
+RevisedCurrentYear [MONEY] NULL
+
+Primary Keys:
+AccountNumber
+EducationOrganizationId
+FiscalYear
 </pre></div>
             </div>
         </p>
@@ -24023,6 +24053,19 @@ AssessmentTitle
 AcademicSubjectDescriptorId
 AssessedGradeLevelDescriptorId
 Author
+<br />extension.AssessmentExtension
+
+AcademicSubjectDescriptorId [INT] NOT NULL
+AssessedGradeLevelDescriptorId [INT] NOT NULL
+AssessmentTitle [NVARCHAR](60) NOT NULL
+Version [INT] NOT NULL
+ProgramGatewayDescriptorId [INT] NULL
+
+Primary Keys:
+AcademicSubjectDescriptorId
+AssessedGradeLevelDescriptorId
+AssessmentTitle
+Version
 <br />edfi.AssessmentIdentificationCode
 
 AcademicSubjectDescriptorId [INT] NOT NULL
@@ -26829,6 +26872,30 @@ Id [UNIQUEIDENTIFIER] NOT NULL
 Primary Keys:
 CredentialIdentifier
 StateOfIssueStateAbbreviationTypeId
+<br />extension.CredentialBoardCertification
+
+CredentialIdentifier [NVARCHAR](60) NOT NULL
+StateOfIssueStateAbbreviationTypeId [INT] NOT NULL
+BoardCertification [BIT] NULL
+BoardCertificationDate [DATE] NULL
+BoardCertificationTypeDescriptorId [INT] NOT NULL
+CreateDate [DATETIME] NOT NULL
+
+Primary Keys:
+CredentialIdentifier
+StateOfIssueStateAbbreviationTypeId
+<br />extension.CredentialCertificationExam
+
+CredentialIdentifier [NVARCHAR](60) NOT NULL
+StateOfIssueStateAbbreviationTypeId [INT] NOT NULL
+CertificationExamTitle [NVARCHAR](60) NOT NULL
+CertificationExamTypeDescriptorId [INT] NULL
+CertificationExamOverallScore [INT] NOT NULL
+CreateDate [DATETIME] NOT NULL
+
+Primary Keys:
+CredentialIdentifier
+StateOfIssueStateAbbreviationTypeId
 <br />edfi.CredentialEndorsement
 
 CredentialEndorsement [NVARCHAR](255) NOT NULL
@@ -26838,6 +26905,44 @@ CreateDate [DATETIME] NOT NULL
 
 Primary Keys:
 CredentialEndorsement
+CredentialIdentifier
+StateOfIssueStateAbbreviationTypeId
+<br />extension.CredentialExtension
+
+CredentialIdentifier [NVARCHAR](60) NOT NULL
+StateOfIssueStateAbbreviationTypeId [INT] NOT NULL
+RevocationDate [DATE] NULL
+RevocationReason [NVARCHAR](40) NULL
+SuspensionDate [DATE] NULL
+SuspensionReason [NVARCHAR](40) NULL
+ValueTypeId [INT] NOT NULL
+
+Primary Keys:
+CredentialIdentifier
+StateOfIssueStateAbbreviationTypeId
+<br />extension.CredentialRecommendation
+
+CredentialIdentifier [NVARCHAR](60) NOT NULL
+StateOfIssueStateAbbreviationTypeId [INT] NOT NULL
+CredentialFieldDescriptorId [INT] NULL
+LevelDescriptorId [INT] NOT NULL
+TeachingCredentialDescriptorId [INT] NOT NULL
+CreateDate [DATETIME] NOT NULL
+
+Primary Keys:
+CredentialIdentifier
+StateOfIssueStateAbbreviationTypeId
+<br />extension.CredentialRecommendingInstitution
+
+CredentialIdentifier [NVARCHAR](60) NOT NULL
+StateOfIssueStateAbbreviationTypeId [INT] NOT NULL
+RecommendingInstutionName [NVARCHAR](75) NOT NULL
+RecommendingDate [DATE] NULL
+RecommendingInstitutionCountryDescriptorId [INT] NULL
+RecommendingInstitutionStateAbbreviationTypeId [INT] NULL
+CreateDate [DATETIME] NOT NULL
+
+Primary Keys:
 CredentialIdentifier
 StateOfIssueStateAbbreviationTypeId
 </pre></div>
@@ -29732,6 +29837,32 @@ TermDescriptorId
 UniqueSectionCode
 SequenceOfCourse
 DateAssigned
+<br />extension.GradebookEntryExtension
+
+ClassPeriodName [NVARCHAR](20) NOT NULL
+ClassroomIdentificationCode [NVARCHAR](20) NOT NULL
+DateAssigned [DATE] NOT NULL
+GradebookEntryTitle [NVARCHAR](60) NOT NULL
+LocalCourseCode [NVARCHAR](60) NOT NULL
+SchoolId [INT] NOT NULL
+SchoolYear [SMALLINT] NOT NULL
+SequenceOfCourse [INT] NOT NULL
+TermDescriptorId [INT] NOT NULL
+UniqueSectionCode [NVARCHAR](255) NOT NULL
+DueDate [DATE] NULL
+ProgramGatewayDescriptorId [INT] NULL
+
+Primary Keys:
+ClassPeriodName
+ClassroomIdentificationCode
+DateAssigned
+GradebookEntryTitle
+LocalCourseCode
+SchoolId
+SchoolYear
+SequenceOfCourse
+TermDescriptorId
+UniqueSectionCode
 <br />edfi.GradebookEntryLearningObjective
 
 AcademicSubjectDescriptorId [INT] NOT NULL
@@ -31178,6 +31309,17 @@ Primary Keys:
 StaffUSI
 EventDate
 LeaveEventCategoryTypeId
+<br />extension.LeaveEventExtension
+
+EventDate [DATE] NOT NULL
+LeaveEventCategoryTypeId [INT] NOT NULL
+StaffUSI [INT] NOT NULL
+PayCodeID [NVARCHAR](4) NULL
+
+Primary Keys:
+EventDate
+LeaveEventCategoryTypeId
+StaffUSI
 </pre></div>
             </div>
         </p>
@@ -35999,6 +36141,30 @@ CreateDate [DATETIME] NOT NULL
 Primary Keys:
 StaffUSI
 AddressTypeId
+<br />extension.StaffApplicant
+
+ApplicantIdentifier [NVARCHAR](32) NOT NULL
+EducationOrganizationId [INT] NOT NULL
+StaffUSI [INT] NOT NULL
+CreateDate [DATETIME] NOT NULL
+
+Primary Keys:
+ApplicantIdentifier
+EducationOrganizationId
+StaffUSI
+<br />extension.StaffBackgroundCheck
+
+BackgroundCheckTypeDescriptorId [INT] NOT NULL
+StaffUSI [INT] NOT NULL
+BackgroundCheckRequestedDate [DATE] NOT NULL
+BackgroundCheckStatusDescriptorId [INT] NULL
+BackgroundCheckCompletedDate [DATE] NULL
+Fingerprint [BIT] NULL
+CreateDate [DATETIME] NOT NULL
+
+Primary Keys:
+BackgroundCheckTypeDescriptorId
+StaffUSI
 <br />edfi.StaffCredential
 
 CredentialIdentifier [NVARCHAR](60) NOT NULL
@@ -36019,6 +36185,25 @@ CreateDate [DATETIME] NOT NULL
 Primary Keys:
 StaffUSI
 ElectronicMailTypeId
+<br />extension.StaffExtension
+
+StaffUSI [INT] NOT NULL
+ProbationCompleteDate [DATE] NULL
+Tenured [BIT] NULL
+GenderTypeId [INT] NULL
+TenureTrack [BIT] NULL
+
+Primary Keys:
+StaffUSI
+<br />extension.StaffHighlyQualifiedAcademicSubject
+
+AcademicSubjectDescriptorId [INT] NOT NULL
+StaffUSI [INT] NOT NULL
+CreateDate [DATETIME] NOT NULL
+
+Primary Keys:
+AcademicSubjectDescriptorId
+StaffUSI
 <br />edfi.StaffIdentificationCode
 
 StaffIdentificationSystemDescriptorId [INT] NOT NULL
@@ -36128,6 +36313,77 @@ CreateDate [DATETIME] NOT NULL
 Primary Keys:
 RecognitionTypeId
 StaffUSI
+<br />extension.StaffSalary
+
+StaffUSI [INT] NOT NULL
+SalaryMinRange [INT] NULL
+SalaryMaxRange [INT] NULL
+SalaryTypeDescriptorId [INT] NULL
+SalaryAmount [MONEY] NULL
+CreateDate [DATETIME] NOT NULL
+
+Primary Keys:
+StaffUSI
+<br />extension.StaffSeniority
+
+CredentialFieldDescriptorId [INT] NOT NULL
+NameOfInstitution [NVARCHAR](75) NOT NULL
+StaffUSI [INT] NOT NULL
+YearsExperience [DECIMAL](5, 2) NOT NULL
+CreateDate [DATETIME] NOT NULL
+
+Primary Keys:
+CredentialFieldDescriptorId
+NameOfInstitution
+StaffUSI
+<br />extension.StaffTeacherEducatorResearch
+
+StaffUSI [INT] NOT NULL
+ResearchExperienceDate [DATE] NOT NULL
+ResearchExperienceTitle [NVARCHAR](60) NULL
+ResearchExperienceDescription [NVARCHAR](1024) NULL
+CreateDate [DATETIME] NOT NULL
+
+Primary Keys:
+StaffUSI
+<br />extension.StaffTeacherPreparationProgram
+
+StaffUSI [INT] NOT NULL
+TeacherPreparationProgramName [NVARCHAR](75) NOT NULL
+TeacherPreparationProgramIdentifier [NVARCHAR](75) NULL
+TeacherPreparationProgramTypeDescriptorId [INT] NOT NULL
+NameOfInstitution [NVARCHAR](75) NOT NULL
+MajorSpecialization [NVARCHAR](75) NOT NULL
+GPA [DECIMAL](18, 4) NULL
+LevelOfDegreeAwardedDescriptorId [INT] NOT NULL
+CreateDate [DATETIME] NOT NULL
+
+Primary Keys:
+StaffUSI
+TeacherPreparationProgramName
+<br />extension.StaffTeacherPreparationProgramAddress
+
+AddressTypeId [INT] NOT NULL
+StaffUSI [INT] NOT NULL
+TeacherPreparationProgramName [NVARCHAR](75) NOT NULL
+StreetNumberName [NVARCHAR](150) NOT NULL
+ApartmentRoomSuiteNumber [NVARCHAR](50) NULL
+BuildingSiteNumber [NVARCHAR](20) NULL
+City [NVARCHAR](30) NOT NULL
+StateAbbreviationTypeId [INT] NOT NULL
+PostalCode [NVARCHAR](17) NOT NULL
+NameOfCounty [NVARCHAR](30) NULL
+CountyFIPSCode [NVARCHAR](5) NULL
+Latitude [NVARCHAR](20) NULL
+Longitude [NVARCHAR](20) NULL
+BeginDate [DATE] NULL
+EndDate [DATE] NULL
+CreateDate [DATETIME] NOT NULL
+
+Primary Keys:
+AddressTypeId
+StaffUSI
+TeacherPreparationProgramName
 <br />edfi.StaffTelephone
 
 StaffUSI [INT] NOT NULL
@@ -37868,6 +38124,36 @@ SequenceOfCourse
 BeginDate
 GradebookEntryTitle
 DateAssigned
+<br />extension.StudentGradebookEntryExtension
+
+BeginDate [DATE] NOT NULL
+ClassPeriodName [NVARCHAR](20) NOT NULL
+ClassroomIdentificationCode [NVARCHAR](20) NOT NULL
+DateAssigned [DATE] NOT NULL
+GradebookEntryTitle [NVARCHAR](60) NOT NULL
+LocalCourseCode [NVARCHAR](60) NOT NULL
+SchoolId [INT] NOT NULL
+SchoolYear [SMALLINT] NOT NULL
+SequenceOfCourse [INT] NOT NULL
+StudentUSI [INT] NOT NULL
+TermDescriptorId [INT] NOT NULL
+UniqueSectionCode [NVARCHAR](255) NOT NULL
+DateCompleted [DATE] NULL
+AssignmentPassed [BIT] NULL
+
+Primary Keys:
+BeginDate
+ClassPeriodName
+ClassroomIdentificationCode
+DateAssigned
+GradebookEntryTitle
+LocalCourseCode
+SchoolId
+SchoolYear
+SequenceOfCourse
+StudentUSI
+TermDescriptorId
+UniqueSectionCode
 </pre></div>
             </div>
         </p>
@@ -40859,6 +41145,14 @@ CreateDate [DATETIME] NOT NULL
 Primary Keys:
 SchoolId
 SchoolCategoryTypeId
+<br />extension.SchoolExtension
+
+SchoolId [INT] NOT NULL
+SchoolStatusDescriptorId [INT] NULL
+ImprovingSchool [BIT] NULL
+
+Primary Keys:
+SchoolId
 <br />edfi.SchoolGradeLevel
 
 GradeLevelDescriptorId [INT] NOT NULL
@@ -45797,7 +46091,7 @@ SchoolTypeId
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">References:</div>
-                <div><br />Used By:<br />StaffSchoolAssociation.SchoolYear (as identity)<br />StudentSchoolAssociation.SchoolYear (as optional)<br />StudentSchoolAssociation.ClassOfSchoolYear (as optional)<br />StaffTeacherPreparationProviderAssociation.SchoolYear (as required)<br />TeacherCandidateTeacherPreparationProviderAssociation.SchoolYear (as optional)<br />TeacherCandidateTeacherPreparationProviderAssociation.ClassOfSchoolYear (as optional)<br />CohortYear.SchoolYear (as identity)<br />LocalEducationAgencyAccountability.SchoolYear (as identity)<br />StateEducationAgencyAccountability.SchoolYear (as identity)<br />School.CharterApprovalSchoolYear (as optional)<br />AccountabilityRating.SchoolYear (as identity)<br />GraduationPlan.GraduationSchoolYear (as identity)<br />Session.SchoolYear (as identity)<br />StudentAcademicRecord.SchoolYear (as identity)<br />AnonymizedStudent.SchoolYear (as identity)<br />AnonymizedStudentAssessment.TakenSchoolYear (as identity)<br />CourseStudentAcademicRecordFacts.SchoolYear (as identity)<br />CourseStudentAssessmentFacts.TakenSchoolYear (as identity)<br />CourseSurveyResponseFacts.SchoolYear (as required)<br />EducationOrganizationFacts.SchoolYear (as identity)<br />EducationOrganizationStudentAcademicRecordFacts.SchoolYear (as identity)<br />EducationOrganizationStudentAssessmentFacts.TakenSchoolYear (as identity)<br />EducationOrganizationSurveyResponseFacts.SchoolYear (as required)<br />ExternalStudentAcademicRecord.SchoolYear (as identity)<br />PerformanceMeasureFacts.SchoolYear (as identity)<br />SchoolStudentGrowthMeasure.SchoolYear (as identity)<br />SectionStudentAssessmentFacts.TakenSchoolYear (as identity)<br />StaffStudentGrowthMeasure.SchoolYear (as identity)<br />Survey.SchoolYear (as required)<br />TeacherCandidateAcademicRecord.SchoolYear (as identity)<br />TeacherCandidateStudentGrowthMeasure.SchoolYear (as identity)</div>
+                <div><br />Used By:<br />StaffSchoolAssociation.SchoolYear (as optional)<br />StudentSchoolAssociation.SchoolYear (as optional)<br />StudentSchoolAssociation.ClassOfSchoolYear (as optional)<br />StaffTeacherPreparationProviderAssociation.SchoolYear (as required)<br />TeacherCandidateTeacherPreparationProviderAssociation.SchoolYear (as optional)<br />TeacherCandidateTeacherPreparationProviderAssociation.ClassOfSchoolYear (as optional)<br />CohortYear.SchoolYear (as identity)<br />LocalEducationAgencyAccountability.SchoolYear (as identity)<br />StateEducationAgencyAccountability.SchoolYear (as identity)<br />School.CharterApprovalSchoolYear (as optional)<br />AccountabilityRating.SchoolYear (as identity)<br />GraduationPlan.GraduationSchoolYear (as identity)<br />Session.SchoolYear (as identity)<br />StudentAcademicRecord.SchoolYear (as identity)<br />AnonymizedStudent.SchoolYear (as identity)<br />AnonymizedStudentAssessment.TakenSchoolYear (as identity)<br />CourseStudentAcademicRecordFacts.SchoolYear (as identity)<br />CourseStudentAssessmentFacts.TakenSchoolYear (as identity)<br />CourseSurveyResponseFacts.SchoolYear (as required)<br />EducationOrganizationFacts.SchoolYear (as identity)<br />EducationOrganizationStudentAcademicRecordFacts.SchoolYear (as identity)<br />EducationOrganizationStudentAssessmentFacts.TakenSchoolYear (as identity)<br />EducationOrganizationSurveyResponseFacts.SchoolYear (as required)<br />ExternalStudentAcademicRecord.SchoolYear (as identity)<br />PerformanceMeasureFacts.SchoolYear (as identity)<br />SchoolStudentGrowthMeasure.SchoolYear (as identity)<br />SectionStudentAssessmentFacts.TakenSchoolYear (as identity)<br />StaffStudentGrowthMeasure.SchoolYear (as identity)<br />Survey.SchoolYear (as required)<br />TeacherCandidateAcademicRecord.SchoolYear (as identity)<br />TeacherCandidateStudentGrowthMeasure.SchoolYear (as identity)</div>
             </div>
             <div class="entryItem">
                 <div class="entryItemLabel">XSD:</div>
