@@ -34,11 +34,11 @@ Domain Entity AnonymizedStudentAssessment
   common PerformanceLevel
     documentation "The performance level(s) achieved for the StudentAssessment."
     is optional
-  domain entity Course
-    documentation "The course associated with aggregated student data"
-    is optional
-  domain entity Section
-    documentation "The section associated with aggregated student data"
-    is optional
-    merge Section.CourseOffering.Session.SchoolYear with AnonymizedStudent.SchoolYear
-    merge Section.CourseOffering.Session.Term with Term
+//  domain entity Course
+//    documentation "The course associated with aggregated student data"
+//    is optional
+//  domain entity Section
+//    documentation "The section associated with aggregated student data"
+//    is optional
+//    merge Section.CourseOffering.Session.SchoolYear with AnonymizedStudent.SchoolYear
+//    merge Section.CourseOffering.Session.Term with Term

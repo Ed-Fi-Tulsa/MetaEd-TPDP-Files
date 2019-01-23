@@ -82,9 +82,9 @@ Domain Entity Applicant
     common TeacherPreparationProgram
         documentation "The Teacher Preparation Program(s) completed by the teacher."
         is optional collection
-	domain entity Prospect
-        documentation "Reference to previously identified prospect."
-        is optional
+//	domain entity Prospect
+//        documentation "Reference to previously identified prospect."
+//        is optional
 
     // TPDP Extensions
     enumeration Gender

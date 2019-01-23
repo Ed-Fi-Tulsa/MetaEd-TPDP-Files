@@ -1,5 +1,7 @@
 Interchange Survey
+
   documentation "?"
+
   domain entity CourseSurveyResponseFacts
   domain entity CourseSurveySectionResponseRatingFacts
   domain entity CourseSurveyQuestionResponseFacts
@@ -15,3 +17,7 @@ Interchange Survey
   domain entity SurveyResponse
   domain entity SurveySection
   domain entity SurveySectionResponseRating
+
+  association SurveyCourseAssociation
+  association SurveyProgramAssociation
+  association SurveySectionAssociation

@@ -1,6 +1,12 @@
 Interchange RecruitmentAndStaffing
+
   documentation "?"
+
   domain entity Credential
   domain entity Applicant
   domain entity Prospect
   domain entity RecruitmentEvent
+
+  association ApplicantProspectAssociation
+  association StaffApplicantAssociation
+  association StaffProspectAssociation

@@ -6,7 +6,6 @@ Choice PersonBeingReviewedChoice
 	domain entity Staff
       documentation "The staff associated with the performance measure."
       is required
-      with context PersonBeingReviewed
 	domain entity TeacherCandidate
       documentation "The teacher candidate associated with the performance measure."
       is required

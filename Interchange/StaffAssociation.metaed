@@ -1,5 +1,8 @@
 Interchange StaffAssociation additions
+
   domain entity StaffFieldworkAbsenceEvent
   domain entity StaffFieldworkExperience
+
+  association StaffFieldworkExperienceSectionAssociation
   association StaffTeacherPreparationProviderAssociation
   association StaffTeacherPreparationProviderProgramAssociation

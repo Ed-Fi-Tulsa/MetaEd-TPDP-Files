@@ -12,17 +12,17 @@ Domain Entity AnonymizedStudent
   enumeration ValueType
     documentation "Domain entity to collect data for indiviudal students with whom the teacher candidate is associated through field work or student teaching"
     is optional
-  domain entity EducationOrganization
-    documentation "The education organization associated with aggregated student data"
-    is optional
-  domain entity Course
-    documentation "The course associated with aggregated student data"
-    is optional
-    merge Course.EducationOrganization with EducationOrganization
-  domain entity Section
-    documentation "The section associated with aggregated student data"
-    is optional
-    merge Section.CourseOffering.Session.SchoolYear with SchoolYear
+//  domain entity EducationOrganization
+//    documentation "The education organization associated with aggregated student data"
+//    is optional
+//  domain entity Course
+//    documentation "The course associated with aggregated student data"
+//    is optional
+//    merge Course.EducationOrganization with EducationOrganization
+//  domain entity Section
+//    documentation "The section associated with aggregated student data"
+//    is optional
+//    merge Section.CourseOffering.Session.SchoolYear with SchoolYear
   enumeration Sex
     documentation "A person's gender."
     is optional

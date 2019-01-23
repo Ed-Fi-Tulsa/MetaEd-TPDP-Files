@@ -1,5 +1,7 @@
 Domain TeacherPreparation
+
     documentation "?"
+
     domain entity AnonymizedStudent
     domain entity AnonymizedStudentAcademicRecord
     domain entity AnonymizedStudentAssessment
@@ -65,12 +67,31 @@ Domain TeacherPreparation
     domain entity TeacherPreparationProvider
     domain entity TeacherPreparationProviderProgram
     domain entity University
+
+    association AnonymizedStudentAssessmentCourseAssociation
+    association AnonymizedStudentAssessmentSectionAssociation
     association AnonymizedStudentCourseAssociation
     association AnonymizedStudentEducationOrganizationAssociation
     association AnonymizedStudentSectionAssociation
+    association ApplicantProspectAssociation
+    association PerformanceMeasureCourseAssociation
+    association StaffApplicantAssociation
     association StaffEducationOrganizationAssignmentAssociation
+    association StaffFieldworkExperienceSectionAssociation
+    association StaffProspectAssociation
+    association StaffStudentGrowthMeasureCourseAssociation
+    association StaffStudentGrowthMeasureEducationOrganizationAssociation
+    association StaffStudentGrowthMeasureSectionAssociation
+    association StaffTeacherCandidateAssociation
     association StaffTeacherPreparationProviderAssociation
     association StaffTeacherPreparationProviderProgramAssociation
+    association SurveyCourseAssociation
+    association SurveyProgramAssociation
+    association SurveySectionAssociation
+    association TeacherCandidateFieldworkExperienceSectionAssociation
     association TeacherCandidateStaffAssociation
+    association TeacherCandidateStudentGrowthMeasureCourseAssociation
+    association TeacherCandidateStudentGrowthMeasureEducationOrganizationAssociation
+    association TeacherCandidateStudentGrowthMeasureSectionAssociation
     association TeacherCandidateTeacherPreparationProviderAssociation
     association TeacherCandidateTeacherPreparationProviderProgramAssociation

@@ -18,9 +18,9 @@ Domain Entity Staff additions
     bool Tenured
         documentation "Indicator of whether the staff member is tenured."
         is optional
-	domain entity Applicant
-        documentation "Reference to applicant(s) represented by this staff member."
-        is optional collection
+//	domain entity Applicant
+//        documentation "Reference to applicant(s) represented by this staff member."
+//        is optional collection
 
     enumeration Gender
       documentation "The gender with which a person associates."
@@ -34,3 +34,9 @@ Domain Entity Staff additions
     bool TenureTrack
         documentation "An indication that the staff is on track for tenure."
         is optional
+//    domain entity Prospect
+//      documentation "Reference to previously identified prospect."
+//      is optional
+//    domain entity TeacherCandidate
+//      documentation "Reference to the teacher candidate associated."
+//      is optional

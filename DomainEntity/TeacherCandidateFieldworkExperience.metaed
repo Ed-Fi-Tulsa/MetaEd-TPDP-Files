@@ -11,11 +11,10 @@ Domain Entity TeacherCandidateFieldworkExperience
   domain entity School
     documentation "The school the teacher candidate is assigned to."
     is part of identity
-    with context FieldworkExperience
     is queryable field
-  domain entity Section
-    documentation "The section the teacher candidate is assigned to."
-    is optional
+//  domain entity Section
+//    documentation "The section the teacher candidate is assigned to."
+//    is optional
   descriptor FieldworkType
     documentation "The type of fieldwork being executed by a teacher candidate."
     is required

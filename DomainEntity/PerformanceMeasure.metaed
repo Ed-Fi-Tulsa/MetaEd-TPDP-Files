@@ -22,9 +22,9 @@ Domain Entity PerformanceMeasure
   descriptor GradeLevel
     documentation "The grade levels for the performance measure."
     is optional collection
-  domain entity Course
-    documentation "The course offered by the education organization."
-    is optional
+//  domain entity Course
+//    documentation "The course offered by the education organization."
+//    is optional
   common PersonBeingReviewed
     documentation "Information regarding the person taking the performance measure."
     is optional

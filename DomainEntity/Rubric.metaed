@@ -3,7 +3,6 @@ Domain Entity Rubric
   domain entity EducationOrganization
     documentation "The education organization, typically a LocalEducationAgency, associated with the prospect."
     is part of identity
-    with context Rubric
     is queryable field
   descriptor RubricType
     documentation "The type of rubric used to conduct the observation."
